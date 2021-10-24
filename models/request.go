@@ -1,6 +1,7 @@
 package models
 
 type RequestNewStore struct {
+	UserID      int
 	Name        string `json:"name" required:"json"`
 	Username    string `json:"username" required:"json"`
 	Description string `json:"description"`

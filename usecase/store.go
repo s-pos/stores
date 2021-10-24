@@ -35,6 +35,7 @@ func (u *usecase) NewStore(ctx context.Context, req models.RequestNewStore) resp
 	}
 
 	store := models.NewStore()
+	store.SetOwnerID(req.UserID)
 	store.SetName(req.Name)
 	store.SetType(req.Type)
 	store.SetSource(req.Source)

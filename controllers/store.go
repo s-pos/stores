@@ -21,5 +21,7 @@ func (c *controller) NewStoreHandler(e echo.Context) error {
 		return response.Errors(ctx, http.StatusBadRequest, string(constants.BodyRequired), message[constants.FailedCreatedStore], reason[constants.BodyRequired], err).Write(e)
 	}
 
+	payload.UserID = ctx.Value("user_id").(int)
+
 	return c.usecase.NewStore(ctx, payload).Write(e)
 }
