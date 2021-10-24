@@ -1,4 +1,4 @@
-name: Deploy Service Authentications on env Staging
+name: Deploy Service Stores on env Staging
 
 on:
   push:
@@ -9,10 +9,10 @@ env:
   NAMESPACE: bri-invest
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-  SERVICE_NAME: auth
-  DOCKER_URL: ${{ secrets.DOCKER_USERNAME }}/spos-auth
+  SERVICE_NAME: stores
+  DOCKER_URL: ${{ secrets.DOCKER_USERNAME }}/spos-store
   HOST: api-dev.brinvestyuk.com
-  ENDPOINT: /auth
+  ENDPOINT: /stores
   KUBE_DATA:
 
 jobs:
