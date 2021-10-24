@@ -1,6 +1,9 @@
 package models
 
-import "time"
+import (
+	"spos/stores/constants"
+	"time"
+)
 
 type Store struct {
 	ID            int        `db:"id"`
@@ -25,9 +28,9 @@ func NewStore() *Store {
 	now := time.Now().UTC()
 
 	return &Store{
-		Enabled:   enabled,
-		Type:      Offline,
-		Source:    Offline,
+		Enabled:   !enabled,
+		Type:      constants.Offline,
+		Source:    constants.Offline,
 		CreatedAt: now,
 	}
 }
@@ -135,12 +138,32 @@ func (s *Store) GetType() string {
 	return s.Type
 }
 
+func (s *Store) IsTypeOffline() bool {
+	return s.GetType() == constants.Offline
+}
+
+func (s *Store) IsTypeOnline() bool {
+	return s.GetType() == constants.Online
+}
+
 func (s *Store) SetSource(sourcee string) {
 	s.Source = sourcee
 }
 
 func (s *Store) GetSource() string {
 	return s.Source
+}
+
+func (s *Store) IsSourceOffline() bool {
+	return s.GetSource() == constants.Offline
+}
+
+func (s *Store) IsSourceTokopedia() bool {
+	return s.GetSource() == constants.Tokopedia
+}
+
+func (s *Store) IsSourceShopee() bool {
+	return s.GetSource() == constants.Shopee
 }
 
 func (s *Store) SetCreatedAt(CreatedAt time.Time) {

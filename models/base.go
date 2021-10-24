@@ -11,13 +11,6 @@ const (
 	defaultBool   = false
 	defaultInt    = 0
 	defaultString = ""
-
-	// type store
-	Offline = "offline"
-	Online  = "online"
-	// Source store
-	Tokopedia = "tokopedia"
-	Shopee    = "shopee"
 )
 
 var timezone = config.Timezone()
