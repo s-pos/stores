@@ -1,0 +1,8 @@
+.idea
+.env
+.yaml
+.json
+.out
+node_modules/
+vendor/
+.vscode/
